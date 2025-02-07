@@ -1,0 +1,29 @@
+Training Data:
+Collect event data from sources like Eventbrite, Meetup, etc. Categorize events into different preferences like music, sports, conferences, etc. You’ll need a large dataset of events labeled with user preferences to train the LLM.
+
+Open Source LLM:
+Use an existing open-source language model such as GPT-3, GPT-2, or Rasa for the chatbot. Train the model on your labeled event data to understand user preferences.
+
+User Interaction:
+Implement the system to interact with the user via WhatsApp or Telegram. You can use Twilio API (for WhatsApp) or python-telegram-bot for the interaction.
+Once a user’s preferences are inputted, the system will suggest relevant events based on past data.
+
+Notification System:
+When a matching event occurs in the city, the system should notify the user via WhatsApp/Telegram using their stored preferences.
+A scheduler can run every 24 hours to check for new events and send notifications.
+
+Steps for Implementation:
+
+Preprocessing and Categorization:
+Scrape events and categorize them based on the type (e.g., concerts, workshops).
+Use this data to create a knowledge base for the LLM.
+
+Model Training:
+Use a language model like GPT-2 or Rasa to train the system. Fine-tune it to understand event-related queries and match user preferences.
+Use TensorFlow or PyTorch for training the model.
+
+User Interaction:
+Implement an integration with WhatsApp (via Twilio API) or Telegram (via python-telegram-bot) to allow users to interact with the LLM and receive event recommendations.
+
+Automation:
+Use APScheduler to schedule daily checks for new events and notify users accordingly.

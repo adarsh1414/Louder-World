@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in Sydney</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .event-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .event-date {
+            color: gray;
+            margin-top: 5px;
+        }
+        .get-tickets-btn {
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Upcoming Events in Sydney</h1>
+        <div class="row">
+            {% for event in events %}
+                <div class="col-md-4">
+                    <div class="event-card">
+                        <div class="event-title">{{ event.name }}</div>
+                        <div class="event-date">{{ event.date }}</div>
+                        <form action="/get_tickets" method="POST">
+                            <input type="hidden" name="event_link" value="{{ event.link }}">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary get-tickets-btn">GET TICKETS</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
